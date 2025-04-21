@@ -1,0 +1,30 @@
+from google_auth_oauthlib.flow import InstalledAppFlow
+from google.oauth2.credentials import Credentials
+import json
+
+# Define the required YouTube API scope
+SCOPES = ["https://www.googleapis.com/auth/youtube.force-ssl"]
+TOKEN_FILE = "token.json"
+
+def authenticate_youtube():
+    """Authenticate and authorize YouTube API access, ensuring a refresh token is included."""
+    
+    flow = InstalledAppFlow.from_client_secrets_file(
+        "client_secret.json", SCOPES
+    )
+
+    credentials = flow.run_local_server(port=8080, access_type="offline", prompt="consent")  # ✅ Forces refresh token
+
+    # ✅ Ensure refresh token is saved
+    token_data = json.loads(credentials.to_json())
+    if "refresh_token" not in token_data:
+        print("❌ Refresh token is missing! Try deleting 'token.json' and re-authenticating.")
+        exit(1)
+
+    with open(TOKEN_FILE, "w") as token_file:
+        json.dump(token_data, token_file, indent=4)
+
+    print("✅ YouTube API Authentication Successful! Token saved.")
+
+if __name__ == "__main__":
+    authenticate_youtube()
