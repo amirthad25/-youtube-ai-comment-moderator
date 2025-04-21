@@ -33,31 +33,18 @@ Click Fetch Comments to list recent comments.
 Click Detect & Remove Abusive Comments to automatically moderate harmful content.
 
 🛠️ Installation
-Clone the repo:
 
-bash
-Copy
-Edit
+Clone the repo:
 git clone https://github.com/your-username/youtube-ai-comment-moderator.git
 cd youtube-ai-comment-moderator
-Install dependencies:
 
-bash
-Copy
-Edit
+Install dependencies:
 pip install -r requirements.txt
 Add your client_secret.json (OAuth credentials from Google Cloud Console).
 
 Run the app:
-
-bash
-Copy
-Edit
 streamlit run app.py
 📂 File Structure
-graphql
-Copy
-Edit
 ├── app.py                 # Main Streamlit app
 ├── token.json             # Generated after first authentication
 ├── client_secret.json     # Your Google OAuth credentials
