@@ -8,7 +8,7 @@ from google_auth_oauthlib.flow import InstalledAppFlow
 import json
 
 # Define YouTube API Scopes
-SCOPES = ["https://www.googleapis.com/auth/youtube.force-ssl"]
+
 TOKEN_FILE = "token.json"
 
 # Authenticate and get YouTube API client
