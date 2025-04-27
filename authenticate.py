@@ -4,7 +4,7 @@ import json
 import os
 
 # Define the required YouTube API scope
-SCOPES = ["https://www.googleapis.com/auth/youtube.force-ssl"]
+
 TOKEN_FILE = "token.json"
 
 def authenticate_youtube():
